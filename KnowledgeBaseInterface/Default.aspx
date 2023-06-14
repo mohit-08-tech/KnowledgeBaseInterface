@@ -3,7 +3,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <div class="body-content bg-primary" style="height: 100%">
+    <div class="body-content bg-primary pb-4">
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-4 text-center text-lg-start">
@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="row">
-                        <h1 class="text-white mb-4 animated slideInDown">Get your queries solve here</h1>
+                        <h1 class="text-white mb-4 animated slideInDown">Get your queries solved here</h1>
                     </div>
                     <div class="row">
                         <div class="input-group">
@@ -23,14 +23,14 @@
                         <div class="row mt-4">
                             <p class="text-white">Popular keywords</p>
                             <div class="col-lg-8">
-                                <button class="transparent-button rounded">Dummy 1</button>
-                                <button class="transparent-button rounded">Dummy 2</button>
-                                <button class="transparent-button rounded">Dummy 3</button>
-                                <button class="transparent-button rounded">Dummy 4</button>
-                                <button class="transparent-button rounded">Dummy 5</button>
-                                <button class="transparent-button rounded">Dummy 6</button>
-                                <button class="transparent-button rounded">Dummy 7</button>
-                                <button class="transparent-button rounded">Dummy 8</button>
+                                <button class="transparent-button rounded p-1">Dummy 1</button>
+                                <button class="transparent-button rounded p-1">Dummy 2</button>
+                                <button class="transparent-button rounded p-1">Dummy 3</button>
+                                <button class="transparent-button rounded p-1">Dummy 4</button>
+                                <button class="transparent-button rounded p-1">Dummy 5</button>
+                                <button class="transparent-button rounded p-1">Dummy 6</button>
+                                <button class="transparent-button rounded p-1">Dummy 7</button>
+                                <button class="transparent-button rounded p-1">Dummy 8</button>
                             </div>
                         </div>
                     </div>
@@ -39,10 +39,13 @@
         </div>
     </div>
 
-    <div class="body-content bg-success p-lg-5" style="height: 100%">
+    <div class="body-content p-lg-5" style="height: 100%">
         <div class="row justify-content-center">
-            <div class="card card-dimensions">
-                <div class="card-header">
+            <div class="row text-center m-3">
+                <h2>Popular Articles</h2>
+            </div>
+            <div class="card card-dimensions shadow-sm bg-body">
+                <div class="card-header bg-white">
                     <h4 class="card-title">Card title</h4>
                 </div>
                 <div class="card-body">
@@ -53,8 +56,8 @@
                 </div>
             </div>
 
-             <div class="card card-dimensions">
-                <div class="card-header">
+             <div class="card card-dimensions shadow-sm bg-body">
+                <div class="card-header bg-white">
                     <h4 class="card-title">Card title</h4>
                 </div>
                 <div class="card-body">
@@ -65,8 +68,8 @@
                 </div>
             </div>
 
-             <div class="card card-dimensions">
-                <div class="card-header">
+             <div class="card card-dimensions shadow-sm bg-body">
+                <div class="card-header bg-white">
                     <h4 class="card-title">Card title</h4>
                 </div>
                 <div class="card-body">
@@ -77,8 +80,8 @@
                 </div>
             </div>
 
-             <div class="card card-dimensions">
-                <div class="card-header">
+             <div class="card card-dimensions shadow-sm bg-body">
+                <div class="card-header bg-white">
                     <h4 class="card-title">Card title</h4>
                 </div>
                 <div class="card-body">

@@ -41,7 +41,12 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Knowledge Base Interface</p>
+                <div class="text-center">
+                    <p>&copy; <%: DateTime.Now.Year %> - Knowledge Base Interface</p>
+                </div>
+                <div class="text-center">
+                    <p>Created By Mohit Kumar</p>
+                </div>
             </footer>
         </div>
 
