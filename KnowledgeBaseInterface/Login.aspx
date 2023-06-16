@@ -32,7 +32,7 @@
                                     <label>Password<span class="text-danger">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></div>
-                                        <asp:TextBox runat="server" ID="TxtPassword" CssClass="form-control" Placeholder="Enter Username or email"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="TxtPassword" TextMode="Password" CssClass="form-control" Placeholder="Enter Username or email"></asp:TextBox>
                                     </div>
                                 </div>
 
@@ -76,8 +76,8 @@
 <script src="Scripts/bootstrap.min.js"></script>
 <script>
     function validateForm() {
-        var username = $('#<%= TxtUserName.ClientID %>').val();
-            var password = $('#<%= TxtPassword.ClientID %>').val();
+        var username = $('#<%= TxtUserName.ClientID %>').val().trim();
+        var password = $('#<%= TxtPassword.ClientID %>').val().trim();
 
         if (username === "") {
             alert("Please enter a username.");

@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <form id="form1" runat="server">
-         <div class="login-page">
+    <form id="form1" runat="server" onsubmit="return validateForm()">
+        <div class="login-page">
             <div class="container">
-                  <div class="col-md-4">
+                <div class="col-md-4">
                     <h3>Knowledge Base Interface</h3>
                 </div>
                 <div class="bg-white shadow rounded p-3">
@@ -24,14 +24,14 @@
                                     <label>Username<span class="text-danger">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></div>
-                                        <input type="text" class="form-control" placeholder="Enter Username" />
+                                        <asp:TextBox runat="server" ID="TxtUserName" CssClass="form-control" Placeholder="Enter Username"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="col-12 p-2">
                                     <label>Email<span class="text-danger">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
-                                        <input type="text" class="form-control" placeholder="Enter Email" />
+                                        <asp:TextBox runat="server" ID="TxtEmail" CssClass="form-control" Placeholder="Enter Email"></asp:TextBox>
                                     </div>
                                 </div>
 
@@ -39,18 +39,22 @@
                                     <label>Password<span class="text-danger">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></div>
-                                        <input type="text" class="form-control" placeholder="Enter Password" />
+                                        <asp:TextBox runat="server" ID="TxtPassword" TextMode="Password" CssClass="form-control" Placeholder="Enter Password"></asp:TextBox>
                                     </div>
                                 </div>
-                                  <div class="col-12 p-2">
+                                <div class="col-12 p-2">
                                     <label>Confirm Your Password<span class="text-danger">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></div>
-                                        <input type="text" class="form-control" placeholder="Confirm Your Password" />
+                                        <asp:TextBox runat="server" ID="TxtConfirmPassword" CssClass="form-control" Placeholder="Confirm Your Password"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="col-md-12 mt-3">
-                                    <button type="submit" class="btn btn-primary">Create Account</button>
+                                    <asp:Button runat="server" ID="BtnCreateAccount" Text="Create Account" CssClass="btn btn-primary" OnClick="BtnCreateAccount_Click" />
+                                </div>
+                                <div class="col-md-12 mt-3">
+                                    <span runat="server" id="SignUpMessage" class="text-info"></span>
+                                    <a href="Login.aspx" runat="server" id="AfterSignUpLogin" style="text-decoration:underline" visible="false">Login Now</a>
                                 </div>
                             </div>
                         </div>
@@ -71,6 +75,52 @@
 
     </form>
 </body>
-    <script src="Scripts/jquery-3.7.0.min.js"></script>
+<script src="Scripts/jquery-3.7.0.min.js"></script>
 <script src="Scripts/bootstrap.min.js"></script>
+<script>
+    function validateForm() {
+        var username = $('#<%= TxtUserName.ClientID %>').val().trim();
+        var email = $('#<%=TxtEmail.ClientID%>').val().trim();
+        var password = $('#<%= TxtPassword.ClientID %>').val().trim();
+        var confirmPassword = $('#<%= TxtConfirmPassword.ClientID %>').val().trim();
+
+        if (username === "") {
+            alert("Please enter a username.");
+            return false;
+        }
+
+        if (email === "") {
+            alert("Please enter email.");
+            return false;
+        }
+
+        if (password === "") {
+            alert("Please enter a password.");
+            return false;
+        }
+
+        if (confirmPassword === "") {
+            alert("Please confirm your password.");
+            return false;
+        }
+
+        // Regular expression for email validation
+        var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; 
+        if (emailRegex.test(email) === false) {
+            // Email is invalid
+            alert('Invalid email address. Please enter a valid email.');
+            return false;
+        }
+
+
+        //Check if password and confirm password are same
+        if (password != confirmPassword) {
+            alert("cofirm password is not same. Please check your password.");
+            return false;
+        }
+
+        // If all validations pass, allow form submission
+        return true;
+    }
+</script>
 </html>
