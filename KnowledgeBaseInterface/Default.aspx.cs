@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace KnowledgeBaseInterface
 {
-    public partial class _Default : Page
+    public partial class _Default : Authenticated
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
         }
     }
 }
