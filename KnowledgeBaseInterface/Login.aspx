@@ -21,10 +21,10 @@
                         <div class="col-md-7 pe-0">
                             <div class="form-left h-100 py-5 px-5">
                                 <div class="col-12 p-2">
-                                    <label>Username / Email<span class="text-danger">*</span></label>
+                                    <label>Email<span class="text-danger">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></div>
-                                        <asp:TextBox runat="server" ID="TxtUserName" CssClass="form-control" Placeholder="Enter Username or email"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="TxtUserEmail" CssClass="form-control" Placeholder="Enter Email"></asp:TextBox>
                                     </div>
                                 </div>
 
@@ -76,7 +76,7 @@
 <script src="Scripts/bootstrap.min.js"></script>
 <script>
     function validateForm() {
-        var username = $('#<%= TxtUserName.ClientID %>').val().trim();
+        var username = $('#<%= TxtUserEmail.ClientID %>').val().trim();
         var password = $('#<%= TxtPassword.ClientID %>').val().trim();
 
         if (username === "") {

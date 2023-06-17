@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using BusinessAccessLayer;
 namespace KnowledgeBaseInterface
 {
     public partial class SignUp : System.Web.UI.Page
@@ -17,10 +17,21 @@ namespace KnowledgeBaseInterface
         protected void BtnCreateAccount_Click(object sender, EventArgs e)
         {
             try {
-                //TODO: Create Account logic
-
                 SignUpMessage.InnerText = string.Empty;
-                bool accountCreated = true;
+                string username = TxtUserName.Text.Trim();
+                string password = TxtPassword.Text.Trim();
+                string email = TxtEmail.Text.Trim();
+
+                UserAccountBAL UserAccount = new UserAccountBAL();
+                bool IsUserAlreadyExist = UserAccount.IsUserAlreadyExist(email);
+                if(IsUserAlreadyExist )
+                {
+                    SignUpMessage.InnerText = "There's already a account registered with same email";
+                    AfterSignUpLogin.Visible = true;
+                    return;
+                }
+
+                bool accountCreated = UserAccount.CreateAccount(username,email,password);
                 if (accountCreated) { 
                     SignUpMessage.InnerText = "Your account has been registered successfully!!";
                     AfterSignUpLogin.Visible = true;

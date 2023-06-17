@@ -35,7 +35,7 @@ namespace KnowledgeBaseInterface
                 Session.Abandon();
 
                 // Redirect to the login page or any other desired page
-                Response.Redirect("~/Login.aspx");
+                Response.Redirect("~/Login.aspx",false);
             }
             catch (Exception ex)
             {

@@ -7,14 +7,9 @@ using System.Web.UI.WebControls;
 
 namespace KnowledgeBaseInterface
 {
-    public partial class _Default : Authenticated
+    public partial class AddNewPost : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-           
-        }
-
-        protected void BtnSearchPost_ServerClick(object sender, EventArgs e)
         {
 
         }

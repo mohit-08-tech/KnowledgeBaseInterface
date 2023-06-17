@@ -14,8 +14,8 @@
                     </div>
                     <div class="row">
                         <div class="input-group">
-                            <input type="search" class="form-control" placeholder="Search" />
-                            <button class="btn btn-success" type="submit">
+                           <asp:TextBox runat="server" TextMode="Search" class="form-control" Placeholder="Search" />
+                            <button runat="server" id="BtnSearchPost" class="btn btn-success" title="Search" onserverclick="BtnSearchPost_ServerClick">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </button>
                         </div>
@@ -30,6 +30,12 @@
                                 <button class="transparent-button rounded p-1">Dummy 6</button>
                                 <button class="transparent-button rounded p-1">Dummy 7</button>
                                 <button class="transparent-button rounded p-1">Dummy 8</button>
+                            </div>
+                        </div>
+                        <div class="row p-4">
+                            <div class="col-lg-12">
+                                <span class="text-white d-inline">Got something?</span>
+                                 <a href="AddNewPost.aspx" class="btn btn-success">Add New Post <i class="fa fa-location-arrow mx-lg-1" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -51,11 +57,11 @@
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
                 <div class="card-footer bg-white">
-                   <button class="btn btn-primary rounded">Button 1</button>
+                    <button class="btn btn-primary rounded">Button 1</button>
                 </div>
             </div>
 
-             <div class="card card-dimensions shadow-sm bg-body">
+            <div class="card card-dimensions shadow-sm bg-body">
                 <div class="card-header bg-white">
                     <h4 class="card-title">Card title</h4>
                 </div>
@@ -63,11 +69,11 @@
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
                 <div class="card-footer bg-white">
-                   <button class="btn btn-primary rounded">Button 2</button>
+                    <button class="btn btn-primary rounded">Button 2</button>
                 </div>
             </div>
 
-             <div class="card card-dimensions shadow-sm bg-body">
+            <div class="card card-dimensions shadow-sm bg-body">
                 <div class="card-header bg-white">
                     <h4 class="card-title">Card title</h4>
                 </div>
@@ -79,7 +85,7 @@
                 </div>
             </div>
 
-             <div class="card card-dimensions shadow-sm bg-body">
+            <div class="card card-dimensions shadow-sm bg-body">
                 <div class="card-header bg-white">
                     <h4 class="card-title">Card title</h4>
                 </div>
