@@ -20,55 +20,66 @@
 <body>
     <form runat="server">
         <div class="row">
-        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0 shadow">
-            <button class="navbar-toggler" id="collapsebtn" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse" id="navbar">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a href="Default.aspx" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="Default.aspx" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="Default.aspx" class="nav-link">Contact</a></li>
+            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0 shadow">
+                <button class="navbar-toggler" id="collapsebtn" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse" id="navbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="Default.aspx" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="Default.aspx" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="Default.aspx" class="nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="submenuDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span runat="server" id="NavUserName"></span>
+                            <img src="images/undraw_pic_profile_re_7g2h.svg" width="40" height="40">
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="submenuDropdown">
+                            <a class="dropdown-item" href="#">Account</a>
+                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a>
+                        </div>
+                    </li>
                 </ul>
-            </div>
-            <ul class="navbar-nav ml-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="submenuDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span runat="server" id="NavUserName"></span> <img src="images/undraw_pic_profile_re_7g2h.svg" width="40" height="40">
-        </a>
-        <div class="dropdown-menu" aria-labelledby="submenuDropdown">
-          <a class="dropdown-item" href="#">Account</a>
-         <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a>
+            </nav>
         </div>
-      </li>
-    </ul>
-        </nav>
-            </div>
+
         <!-- Logout Confirmation Modal -->
-<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="logoutModalLabel">Logout Confirmation</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Are you sure you want to logout?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <asp:Button runat="server" ID="BtnLogOut" CssClass="btn btn-primary" Text="Logout" OnClick="BtnLogOut_Click"/>
-      </div>
-    </div>
-  </div>
-</div>
-        <div class="row bg-body" style="height:100vh;">
+        <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="logoutModalLabel">Logout Confirmation</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to logout?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <asp:Button runat="server" ID="BtnLogOut" CssClass="btn btn-primary" Text="Logout" OnClick="BtnLogOut_Click" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-    </form>
-    <script type="text/javascript">
 
-</script>
+        <div class="row p-3"></div>
+        <hr />
+        <div class="container-fluid">
+            <footer class="row card-footer">
+                <div class="text-center">
+                    <p>&copy;<%=DateTime.Now.Year %> Created by Mohit Kumar</p>
+                </div>
+            </footer>
+        </div>
+    </form>
+   
 </body>
 </html>

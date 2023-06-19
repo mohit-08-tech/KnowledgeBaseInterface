@@ -92,7 +92,7 @@ namespace DataAccessLayer
             string UserName = String.Empty;
             try
             {
-                LogHelper.InfoFormat("Checking if user: {0} a valid user ?", email);
+                LogHelper.InfoFormat("Checking if user: {0} a valid user?", email);
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     using (SqlCommand command = new SqlCommand("ValidateUserLogin", connection))

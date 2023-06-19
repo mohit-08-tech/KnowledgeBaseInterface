@@ -2,8 +2,8 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <div class="body-content bg-primary pb-4">
-        <div class="container">
+    <div class="row bg-primary">
+        <div class="container-fluid">
             <div class="row g-5">
                 <div class="col-lg-4 text-center text-lg-start">
                     <img src="images/undraw_picture_re_ne03.svg" width="400" height="auto">
@@ -14,7 +14,7 @@
                     </div>
                     <div class="row">
                         <div class="input-group">
-                           <asp:TextBox runat="server" TextMode="Search" class="form-control" Placeholder="Search" />
+                            <asp:TextBox runat="server" TextMode="Search" class="form-control" Placeholder="Search" />
                             <button runat="server" id="BtnSearchPost" class="btn btn-success" title="Search" onserverclick="BtnSearchPost_ServerClick">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </button>
@@ -35,7 +35,7 @@
                         <div class="row p-4">
                             <div class="col-lg-12">
                                 <span class="text-white d-inline">Got something?</span>
-                                 <a href="AddNewPost.aspx" class="btn btn-success">Add New Post <i class="fa fa-location-arrow mx-lg-1" aria-hidden="true"></i></a>
+                                <a href="AddNewPost.aspx" class="btn btn-success">Add New Post <i class="fa fa-location-arrow mx-lg-1" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -44,59 +44,60 @@
         </div>
     </div>
 
-    <div class="body-content p-lg-5" style="height: 100%">
-        <div class="row justify-content-center">
-            <div class="row text-center m-3">
-                <h2>Popular Articles</h2>
-            </div>
-            <div class="card card-dimensions shadow-sm bg-body">
-                <div class="card-header bg-white">
-                    <h4 class="card-title">Card title</h4>
+    <div class="row bg-white">
+        <div class="container-fluid p-3">
+            <div class="row justify-content-center">
+                <div class="row text-center m-3">
+                    <h2>Popular Articles</h2>
                 </div>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="card card-dimensions shadow-sm bg-body">
+                    <div class="card-header bg-white">
+                        <h4 class="card-title">Card title</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <button class="btn btn-primary rounded">Button 1</button>
+                    </div>
                 </div>
-                <div class="card-footer bg-white">
-                    <button class="btn btn-primary rounded">Button 1</button>
-                </div>
-            </div>
 
-            <div class="card card-dimensions shadow-sm bg-body">
-                <div class="card-header bg-white">
-                    <h4 class="card-title">Card title</h4>
+                <div class="card card-dimensions shadow-sm bg-body">
+                    <div class="card-header bg-white">
+                        <h4 class="card-title">Card title</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <button class="btn btn-primary rounded">Button 2</button>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-                <div class="card-footer bg-white">
-                    <button class="btn btn-primary rounded">Button 2</button>
-                </div>
-            </div>
 
-            <div class="card card-dimensions shadow-sm bg-body">
-                <div class="card-header bg-white">
-                    <h4 class="card-title">Card title</h4>
+                <div class="card card-dimensions shadow-sm bg-body">
+                    <div class="card-header bg-white">
+                        <h4 class="card-title">Card title</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <button class="btn btn-primary rounded">Button 3</button>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-                <div class="card-footer bg-white">
-                    <button class="btn btn-primary rounded">Button 3</button>
-                </div>
-            </div>
 
-            <div class="card card-dimensions shadow-sm bg-body">
-                <div class="card-header bg-white">
-                    <h4 class="card-title">Card title</h4>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-                <div class="card-footer bg-white">
-                    <button class="btn btn-primary rounded">Button 4</button>
+                <div class="card card-dimensions shadow-sm bg-body">
+                    <div class="card-header bg-white">
+                        <h4 class="card-title">Card title</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <button class="btn btn-primary rounded">Button 4</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
 </asp:Content>

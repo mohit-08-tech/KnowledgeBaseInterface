@@ -25,7 +25,6 @@ namespace KnowledgeBaseInterface
                 string useremail = TxtUserEmail.Text; // Get the entered username
                 string password = TxtPassword.Text; // Get the entered password
 
-                LogHelper.InfoFormat("Checking if user: {0} is valid",useremail);
                 UserAccountBAL ValidateUserObj = new UserAccountBAL();
               
                 // Validate the credentials

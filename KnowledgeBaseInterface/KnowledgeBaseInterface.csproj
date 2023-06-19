@@ -119,7 +119,7 @@
     <Content Include="ErrorPage.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="images\AddNewPostVector.jpg" />
+    <Content Include="images\AddNewPost.svg" />
     <Content Include="images\undraw_picture_re_ne03.svg" />
     <Content Include="images\undraw_pic_profile_re_7g2h.svg" />
     <Content Include="Login.aspx" />
