@@ -2,6 +2,23 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .search-button {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  background-image: url('images/search-icon.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: 30px 30px;
+  background-position:center center;
+  border-top-right-radius:0.375rem;
+  border-bottom-right-radius:0.375rem;
+}
+
+
+    </style>
     <div class="row bg-primary">
         <div class="container-fluid">
             <div class="row g-5">
@@ -14,22 +31,17 @@
                     </div>
                     <div class="row">
                         <div class="input-group">
-                            <asp:TextBox runat="server" TextMode="Search" class="form-control" Placeholder="Search" />
-                            <button runat="server" id="BtnSearchPost" class="btn btn-success" title="Search" onserverclick="BtnSearchPost_ServerClick">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
+                            <asp:TextBox runat="server" ID="TxtSearchBox" TextMode="Search" class="form-control" Placeholder="Search" />
+                                <asp:Button runat="server" ID="BtnSearchPosts" CssClass="search-button" OnClientClick="return ValidateSearch(event);" OnClick="BtnSearchPosts_Click" />
                         </div>
                         <div class="row mt-4">
                             <p class="text-white">Popular keywords</p>
                             <div class="col-lg-8">
-                                <button class="transparent-button rounded p-1">Dummy 1</button>
-                                <button class="transparent-button rounded p-1">Dummy 2</button>
-                                <button class="transparent-button rounded p-1">Dummy 3</button>
-                                <button class="transparent-button rounded p-1">Dummy 4</button>
-                                <button class="transparent-button rounded p-1">Dummy 5</button>
-                                <button class="transparent-button rounded p-1">Dummy 6</button>
-                                <button class="transparent-button rounded p-1">Dummy 7</button>
-                                <button class="transparent-button rounded p-1">Dummy 8</button>
+                                <div id="toptagscontainer" runat="server">
+                                </div>
+                                <div class="visually-hidden">
+                                    <asp:Button runat="server" ID="btnSearchFromTags" OnClick="SearchFromTopTags" />
+                                </div>
                             </div>
                         </div>
                         <div class="row p-4">
@@ -100,4 +112,25 @@
             </div>
         </div>
     </div>
+    <asp:HiddenField ID="HdnValue" runat="server" />
+    <script>
+
+        function ValidateSearch(event) {
+            var SearchString = $('#<%= TxtSearchBox.ClientID %>').val().trim();
+            if (SearchString === "") {
+                alert("Enter any keyword to search");
+                return false;
+            }
+            return true;
+        }
+
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+
+        function SearchFromTags(e) {
+            document.getElementById("<%=HdnValue.ClientID %>").value = e.value;
+            document.getElementById("<%=btnSearchFromTags.ClientID %>").click();
+        }
+    </script>
 </asp:Content>

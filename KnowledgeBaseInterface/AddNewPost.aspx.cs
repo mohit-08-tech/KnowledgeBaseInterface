@@ -9,7 +9,7 @@ using Utilities;
 
 namespace KnowledgeBaseInterface
 {
-    public partial class AddNewPost : System.Web.UI.Page
+    public partial class AddNewPost : Authenticated
     {
         protected void Page_Load(object sender, EventArgs e)
         {

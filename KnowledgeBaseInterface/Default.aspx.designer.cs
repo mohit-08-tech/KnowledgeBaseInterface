@@ -15,12 +15,48 @@ namespace KnowledgeBaseInterface
     {
 
         /// <summary>
-        /// BtnSearchPost control.
+        /// TxtSearchBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton BtnSearchPost;
+        protected global::System.Web.UI.WebControls.TextBox TxtSearchBox;
+
+        /// <summary>
+        /// BtnSearchPosts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnSearchPosts;
+
+        /// <summary>
+        /// toptagscontainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl toptagscontainer;
+
+        /// <summary>
+        /// btnSearchFromTags control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSearchFromTags;
+
+        /// <summary>
+        /// HdnValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HdnValue;
     }
 }
