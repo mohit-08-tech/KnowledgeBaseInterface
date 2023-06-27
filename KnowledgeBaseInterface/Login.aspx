@@ -13,8 +13,9 @@
     <form id="form1" runat="server" onsubmit="return validateForm()">
         <div class="login-page">
             <div class="container">
-                <div class="col-md-4">
-                    <h3>Knowledge Base Interface</h3>
+                <div class="col-md-12">
+                    <img src="images/logo-transparent.png" width="100" class="d-inline-block"/>
+                    <h3 class="d-inline-block">Knowledge Base Interface</h3>
                 </div>
                 <div class="bg-white shadow rounded p-3">
                     <div class="row">
@@ -56,12 +57,17 @@
                             </div>
                         </div>
                         <div class="col-md-5 ps-0 d-none d-md-block">
-                            <div class="form-right h-100 blue-gradient text-white text-center pt-5 rounded-5">
-                                <div class="row pt-5">
-                                    <h2 class="fs-1">Welcome Back!!!</h2>
+                            <div class="form-right h-100  text-white text-center ">
+                                <div class="blue-gradient rounded-3">
+                                    <div class="row pt-4">
+                                        <h2 class="fs-1">Welcome Back!!!</h2>
+                                    </div>
+                                    <div class="row py-2">
+                                        <a href="SignUp.aspx" class="text-white text-center custom-link-hover">Not have a account? SignUp here</a>
+                                    </div>
                                 </div>
-                                <div class="row pt-5">
-                                    <a href="SignUp.aspx" class="text-white text-center custom-link-hover">Not have a account? SignUp here</a>
+                                <div class="bg-image pt-5">
+                                    <img src="images/login.svg" width="200" />
                                 </div>
                             </div>
                         </div>

@@ -120,7 +120,10 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="images\AddNewPost.svg" />
+    <Content Include="images\login.svg" />
+    <Content Include="images\logo-transparent.png" />
     <Content Include="images\search-icon.svg" />
+    <Content Include="images\signup.svg" />
     <Content Include="images\taking_notes.svg" />
     <Content Include="images\undraw_picture_re_ne03.svg" />
     <Content Include="images\undraw_pic_profile_re_7g2h.svg" />
