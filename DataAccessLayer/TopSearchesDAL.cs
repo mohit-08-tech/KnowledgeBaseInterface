@@ -54,5 +54,49 @@ namespace DataAccessLayer
                 return null;
             }
         }
+
+        public List<Post> GetTopArticles()
+        {
+            List<Post> ResultPosts = new List<Post>();
+            try
+            {
+                LogHelper.Info("Searching top articles in database");
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand command = new SqlCommand("GetTopArticles", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        connection.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            Post post = new Post
+                            {
+                                PostId = (Guid)reader["PostId"],
+                                PostTitle = (string)reader["PostTitle"],
+                                PostDescription = (string)reader["PostDescription"],
+                                PostCategory = Convert.ToInt64(reader["PostCategoryId"]),
+                                PostCategoryName = (string)reader["PostCategoryName"],
+                                PostTags = (string)reader["PostTags"],
+                                PostAuthorName = (string)reader["PostAuthorName"],
+                                PostAuthorEmail = (string)reader["PostAuthorEmail"],
+                                PostDate = (DateTime)reader["PostDate"]
+                            };
+
+                            ResultPosts.Add(post);
+                        }
+                    }
+                }
+
+                return ResultPosts;
+            }
+            catch (Exception ex)
+            {
+                LogHelper.ErrorFormat("Error in getting top artciles DAL. Error = {0}", ex.Message);
+                return null;
+            }
+        }
     }
 }

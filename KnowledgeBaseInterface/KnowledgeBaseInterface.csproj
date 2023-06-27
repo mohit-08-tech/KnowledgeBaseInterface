@@ -120,10 +120,11 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="images\AddNewPost.svg" />
-    <Content Include="images\search-icon.png" />
+    <Content Include="images\search-icon.svg" />
     <Content Include="images\taking_notes.svg" />
     <Content Include="images\undraw_picture_re_ne03.svg" />
     <Content Include="images\undraw_pic_profile_re_7g2h.svg" />
+    <Content Include="images\update-profile.svg" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />

@@ -21,6 +21,8 @@ namespace KnowledgeBaseInterface
                 string username = TxtUserName.Text.Trim();
                 string password = TxtPassword.Text.Trim();
                 string email = TxtEmail.Text.Trim();
+                string phone = TxtPhone.Text.Trim();
+                string designation = TxtDesignation.Text.Trim();
 
                 UserAccountBAL UserAccount = new UserAccountBAL();
                 bool IsUserAlreadyExist = UserAccount.IsUserAlreadyExist(email);
@@ -31,7 +33,7 @@ namespace KnowledgeBaseInterface
                     return;
                 }
 
-                bool accountCreated = UserAccount.CreateAccount(username,email,password);
+                bool accountCreated = UserAccount.CreateAccount(username,email,password,phone, designation);
                 if (accountCreated) { 
                     SignUpMessage.InnerText = "Your account has been registered successfully!!";
                     AfterSignUpLogin.Visible = true;
@@ -57,6 +59,8 @@ namespace KnowledgeBaseInterface
                 TxtEmail.Text= string.Empty;
                 TxtPassword.Text= string.Empty;
                 TxtConfirmPassword.Text= string.Empty;
+                TxtPhone.Text = string.Empty;
+                TxtDesignation.Text = string.Empty;
             }catch (Exception ex)
             {
                 throw ex;

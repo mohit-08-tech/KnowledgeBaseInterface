@@ -22,7 +22,7 @@ namespace DataAccessLayer
             connectionString = "Data Source=" + DataSource+ ";Initial Catalog=" + IntitialCatalog + ";Integrated Security=SSPI;Persist Security Info=False;";
         }
         
-        public bool CreateAccount(string username, string email,string password)
+        public bool CreateAccount(string username, string email,string password, string phone, string designation)
         {
             try
             {
@@ -35,7 +35,17 @@ namespace DataAccessLayer
                         command.Parameters.AddWithValue("@UserId", username);
                         command.Parameters.AddWithValue("@Email", email);
                         command.Parameters.AddWithValue("@Password", password);
-                        
+
+                        if (String.IsNullOrEmpty(phone))
+                            command.Parameters.AddWithValue("@Phone", (DBNull.Value));
+                        else
+                            command.Parameters.AddWithValue("@Phone", (phone));
+
+                        if (String.IsNullOrEmpty(designation))
+                            command.Parameters.AddWithValue("@Designation", (DBNull.Value));
+                        else
+                            command.Parameters.AddWithValue("@Designation", (designation));
+
                         connection.Open();
                         command.ExecuteNonQuery();
                         connection.Close();
@@ -111,6 +121,46 @@ namespace DataAccessLayer
                 LogHelper.ErrorFormat("Error in validating user: {0}. Error = {1}",email,ex.Message);
             }
             return UserName;
+        }
+
+
+        public UserInfo GetUserInfo(string email)
+        {
+            try
+            {
+                UserInfo userInfo = null;
+
+                LogHelper.InfoFormat("Getting User Info for: {0}", email);
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand command = new SqlCommand("GetUserInfo", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@Email", email);
+                        connection.Open();
+                        SqlDataReader reader  = command.ExecuteReader();
+                        while(reader.Read())
+                        {
+                            userInfo = new UserInfo
+                            {
+                                UserName = (string)reader["UserId"],
+                                UserEmail = (string)reader["Email"],
+                                IsAdmin = (string)reader["IsAdmin"],
+                                UserPhone = (string)reader["Phone"],
+                                UserDesignation = (string)reader["Designation"],
+                                PostCount = (int)reader["PostCount"]
+                            };
+                        }
+                        connection.Close();
+                    }
+                }
+                return userInfo;
+            }
+            catch (Exception ex)
+            {
+                LogHelper.ErrorFormat("Error in getting user infor: {0} count. Error = {1}", email, ex.Message);
+                return null;
+            }
         }
     }
 }

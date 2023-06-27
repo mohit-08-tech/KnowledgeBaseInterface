@@ -60,6 +60,24 @@ namespace KnowledgeBaseInterface
         protected global::System.Web.UI.WebControls.TextBox TxtConfirmPassword;
 
         /// <summary>
+        /// TxtPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtPhone;
+
+        /// <summary>
+        /// TxtDesignation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtDesignation;
+
+        /// <summary>
         /// BtnCreateAccount control.
         /// </summary>
         /// <remarks>

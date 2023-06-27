@@ -2,23 +2,9 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        .search-button {
-  background-color: green;
-  color: white;
-  border: none;
-  padding: 10px 25px;
-  background-image: url('images/search-icon.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-size: 30px 30px;
-  background-position:center center;
-  border-top-right-radius:0.375rem;
-  border-bottom-right-radius:0.375rem;
-}
+    <link href="Content/Site.css" rel="stylesheet" />
+     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
-
-    </style>
     <div class="row bg-primary">
         <div class="container-fluid">
             <div class="row g-5">
@@ -32,7 +18,7 @@
                     <div class="row">
                         <div class="input-group">
                             <asp:TextBox runat="server" ID="TxtSearchBox" TextMode="Search" class="form-control" Placeholder="Search" />
-                                <asp:Button runat="server" ID="BtnSearchPosts" CssClass="search-button" OnClientClick="return ValidateSearch(event);" OnClick="BtnSearchPosts_Click" />
+                            <asp:Button runat="server" ID="BtnSearchPosts" CssClass="search-button" OnClientClick="return ValidateSearch(event);" OnClick="BtnSearchPosts_Click" />
                         </div>
                         <div class="row mt-4">
                             <p class="text-white">Popular keywords</p>
@@ -62,56 +48,82 @@
                 <div class="row text-center m-3">
                     <h2>Popular Articles</h2>
                 </div>
-                <div class="card card-dimensions shadow-sm bg-body">
-                    <div class="card-header bg-white">
-                        <h4 class="card-title">Card title</h4>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                    <div class="card-footer bg-white">
-                        <button class="btn btn-primary rounded">Button 1</button>
-                    </div>
-                </div>
-
-                <div class="card card-dimensions shadow-sm bg-body">
-                    <div class="card-header bg-white">
-                        <h4 class="card-title">Card title</h4>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                    <div class="card-footer bg-white">
-                        <button class="btn btn-primary rounded">Button 2</button>
-                    </div>
-                </div>
-
-                <div class="card card-dimensions shadow-sm bg-body">
-                    <div class="card-header bg-white">
-                        <h4 class="card-title">Card title</h4>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                    <div class="card-footer bg-white">
-                        <button class="btn btn-primary rounded">Button 3</button>
-                    </div>
-                </div>
-
-                <div class="card card-dimensions shadow-sm bg-body">
-                    <div class="card-header bg-white">
-                        <h4 class="card-title">Card title</h4>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                    <div class="card-footer bg-white">
-                        <button class="btn btn-primary rounded">Button 4</button>
-                    </div>
-                </div>
+                <div id="PopluarArticlesContainer" class="d-flex justify-content-center flex-wrap" runat="server"></div>
             </div>
         </div>
     </div>
+
+
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+            <div class="modal fade" id="ViewPostModal" tabindex="-1" aria-labelledby="ViewPostModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header shadow">
+                            <h5 class="modal-title" runat="server" id="ViewPostModalLabel"></h5>
+                            <button type="button" class="btn-close bg-danger text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" style="max-height: 80vh; overflow-y: auto;">
+                            <div class="d-flex shadow p-4 rounded-2">
+                                <div class="container-fluid row">
+                                    <div class="col-lg-8 border-right border-bottom-sm">
+                                        <div class="container-fluid">
+                                            <div class="container p-1">
+                                                <h1 class="alert-heading fw-bold">Title:</h1>
+                                                <p class="fs-3" runat="server" id="postTitleModal"></p>
+                                            </div>
+                                            <hr />
+                                            <div class="container p-1">
+                                                <p class="fs-4 fw-bold">Description:</p>
+                                                <p class="text-body-emphasis" runat="server" id="postDescriptionModal">
+                                                </p>
+                                            </div>
+                                            <hr />
+                                            <div class="container p-1">
+                                                <p class="fs-5 d-inline-block">Date:  </p>
+                                                <p class="text-body-emphasis d-inline-block" runat="server" id="PostDateModal"></p>
+                                            </div>
+                                            <div class="container p-1">
+                                                <p class="fs-5 d-inline-block">Tags:  </p>
+                                                <p class="text-body-emphasis d-inline-block" runat="server" id="PostTagsModal"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 border-top-sm">
+                                        <div class="container-fluid">
+                                            <div class="container p-1">
+                                                <p class="fs-5 d-inline-block">Category:  </p>
+                                                <p class="text-body-emphasis d-inline-block" runat="server" id="PostCategoryModal"></p>
+                                            </div>
+                                            <div class="container p-1">
+                                                <p class="fs-5 d-inline-block">Author:  </p>
+                                                <p class="text-body-emphasis m-0 d-inline-block" runat="server" id="PostAuthorNameModal"></p>
+                                                <p class="text-body-emphasis m-0 d-inline-block" runat="server" id="PostAuthorEmailModal"></p>
+                                            </div>
+                                            <div class="container p-1">
+                                                <p class="fs-5 d-inline-block">Likes:  </p>
+                                                <p class="text-body-emphasis d-inline-block" runat="server" id="PostLikes">10</p>
+                                            </div>
+                                            <div class="container p-1">
+                                                <img src="images/taking_notes.svg" width="350" alt="image.svg" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visually-hidden">
+                <asp:Button runat="server" ID="btnQuickSearch" OnClick="btnQuickSearch_Click" />
+                <asp:HiddenField runat="server" ID="HdnPostId" />
+            </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+
     <asp:HiddenField ID="HdnValue" runat="server" />
     <script>
 
@@ -131,6 +143,12 @@
         function SearchFromTags(e) {
             document.getElementById("<%=HdnValue.ClientID %>").value = e.value;
             document.getElementById("<%=btnSearchFromTags.ClientID %>").click();
+        }
+
+        function QuickSearch(e) {
+            var postId = e.id;
+            document.getElementById("<%= HdnPostId.ClientID %>").value = postId;
+            document.getElementById("<%=btnQuickSearch.ClientID %>").click();
         }
     </script>
 </asp:Content>

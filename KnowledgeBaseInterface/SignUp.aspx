@@ -49,6 +49,20 @@
                                         <asp:TextBox runat="server" ID="TxtConfirmPassword" CssClass="form-control" Placeholder="Confirm Your Password"></asp:TextBox>
                                     </div>
                                 </div>
+                                 <div class="col-12 p-2">
+                                    <label>Phone</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                                        <asp:TextBox runat="server" ID="TxtPhone" CssClass="form-control" Placeholder="Enter your phone number"></asp:TextBox>
+                                    </div>
+                                </div>
+                                   <div class="col-12 p-2">
+                                    <label>Designation</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text"><i class="fa fa-briefcase" aria-hidden="true"></i></div>
+                                        <asp:TextBox runat="server" ID="TxtDesignation" CssClass="form-control" Placeholder="Enter your designation"></asp:TextBox>
+                                    </div>
+                                </div>
                                 <div class="col-md-12 mt-3">
                                     <asp:Button runat="server" ID="BtnCreateAccount" Text="Create Account" CssClass="btn btn-primary" OnClick="BtnCreateAccount_Click" />
                                 </div>

@@ -57,6 +57,21 @@ a {
     width: 90%;
 }
 
+.search-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    background-image: url('../images/search-icon.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 30px 30px;
+    background-position: center center;
+    border-top-right-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+}
+
+
 .mint {
     background: #0F2027; /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027); /* Chrome 10-25, Safari 5.1-6 */
@@ -67,6 +82,12 @@ a {
     background: -webkit-linear-gradient(to right, #48b1bf, #06beb6); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #48b1bf, #06beb6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+.gradient-custom {
+    background: #f6d365;
+    background: -webkit-linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
+    background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
+}
+
 
 .border-right {
     border-right: 1px solid #ccc;

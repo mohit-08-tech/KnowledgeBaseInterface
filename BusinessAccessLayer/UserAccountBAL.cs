@@ -16,9 +16,10 @@ namespace BusinessAccessLayer
         /// <param name="email"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public bool CreateAccount(string username, string email, string password) { 
+        public bool CreateAccount(string username, string email, string password, string phone, string designation)
+        {
             UserAccountsDAL CreateAccountObj = new UserAccountsDAL();
-            return CreateAccountObj.CreateAccount(username, email,password);
+            return CreateAccountObj.CreateAccount(username, email, password, phone, designation);
         }
 
         public bool IsUserAlreadyExist(string email)
@@ -30,7 +31,13 @@ namespace BusinessAccessLayer
         public string ValidateUserLogin(string email, string password)
         {
             UserAccountsDAL ValidateUserObj = new UserAccountsDAL();
-            return ValidateUserObj.ValidateUserLogin(email,password);
+            return ValidateUserObj.ValidateUserLogin(email, password);
+        }
+
+        public UserInfo GetUserInfo(string email)
+        {
+            UserAccountsDAL GetUserInfoObj = new UserAccountsDAL();
+            return GetUserInfoObj.GetUserInfo(email);
         }
     }
 }
