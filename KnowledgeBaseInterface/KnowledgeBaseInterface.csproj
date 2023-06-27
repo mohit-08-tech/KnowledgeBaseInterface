@@ -184,7 +184,6 @@
     <Content Include="SearchResult.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="Site.Master" />
-    <Content Include="ViewPost.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -259,13 +258,6 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
-    </Compile>
-    <Compile Include="ViewPost.aspx.cs">
-      <DependentUpon>ViewPost.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ViewPost.aspx.designer.cs">
-      <DependentUpon>ViewPost.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="Content/Site.css" rel="stylesheet" />
-     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <asp:ScriptManagerProxy ID="ScriptManagerProxy1" runat="server"></asp:ScriptManagerProxy>
 
     <div class="row bg-primary">
         <div class="container-fluid">
@@ -17,7 +17,7 @@
                     </div>
                     <div class="row">
                         <div class="input-group">
-                            <asp:TextBox runat="server" ID="TxtSearchBox" TextMode="Search" class="form-control" Placeholder="Search" />
+                            <asp:TextBox runat="server" ID="TxtSearchBox" TextMode="Search" class="form-control" Placeholder="Search" onkeydown="handleKeyPress(event)"/>
                             <asp:Button runat="server" ID="BtnSearchPosts" CssClass="search-button" OnClientClick="return ValidateSearch(event);" OnClick="BtnSearchPosts_Click" />
                         </div>
                         <div class="row mt-4">
@@ -149,6 +149,14 @@
             var postId = e.id;
             document.getElementById("<%= HdnPostId.ClientID %>").value = postId;
             document.getElementById("<%=btnQuickSearch.ClientID %>").click();
+        }
+
+        function handleKeyPress(event) {
+            // Check if the Enter key is pressed (key code 13)
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById('<%= BtnSearchPosts.ClientID %>').click();
+            }
         }
     </script>
 </asp:Content>

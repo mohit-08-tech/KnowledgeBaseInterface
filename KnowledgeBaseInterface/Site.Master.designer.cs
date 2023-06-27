@@ -15,6 +15,15 @@ namespace KnowledgeBaseInterface
     {
 
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
         /// NavUserName control.
         /// </summary>
         /// <remarks>
@@ -87,40 +96,40 @@ namespace KnowledgeBaseInterface
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl PostCount;
 
         /// <summary>
-        /// TxtEmail control.
+        /// TxtUpdateEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtEmail;
+        protected global::System.Web.UI.WebControls.TextBox TxtUpdateEmail;
 
         /// <summary>
-        /// TxtUserName control.
+        /// TxtUpdateUserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtUserName;
+        protected global::System.Web.UI.WebControls.TextBox TxtUpdateUserName;
 
         /// <summary>
-        /// TxtPassword control.
+        /// TxtUpdatePhone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtPassword;
+        protected global::System.Web.UI.WebControls.TextBox TxtUpdatePhone;
 
         /// <summary>
-        /// TxtConfirmPassword control.
+        /// TxtUpdateDesignation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtConfirmPassword;
+        protected global::System.Web.UI.WebControls.TextBox TxtUpdateDesignation;
 
         /// <summary>
         /// BtnUpdateProfile control.
@@ -130,6 +139,15 @@ namespace KnowledgeBaseInterface
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnUpdateProfile;
+
+        /// <summary>
+        /// customMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl customMsg;
 
         /// <summary>
         /// MainContent control.

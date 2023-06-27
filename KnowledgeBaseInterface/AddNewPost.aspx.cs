@@ -29,16 +29,19 @@ namespace KnowledgeBaseInterface
                 string PostTitle = string.Empty;
                 string PostDescription = string.Empty;
                 string PostTags = string.Empty;
-                string PostAuthor = string.Empty;
+                string PostAuthorName = string.Empty;
+                string PostAuthorEmail = string.Empty;
+
 
                 PostCategory = Convert.ToInt32(DrpdwnCategory.SelectedItem.Value);
                 PostTitle = TxtPostTitle.Text.Trim();
                 PostDescription = TextPostDescription.InnerText.Trim();
                 PostTags = TxtPostTags.Text.Trim();
-                PostAuthor = Session["UserName"] != null ? Convert.ToString(Session["UserName"]) : string.Empty;
-                
+                PostAuthorName = Session["UserName"] != null ? Convert.ToString(Session["UserName"]) : string.Empty;
+                PostAuthorEmail = Session["UserEmail"] != null ? Convert.ToString(Session["UserEmail"]) : string.Empty;
+
                 UserPostsBAL UserPostsObj = new UserPostsBAL();
-                bool postCreated = UserPostsObj.CreateNewPost(PostCategory,PostTitle,PostDescription,PostTags,PostAuthor);
+                bool postCreated = UserPostsObj.CreateNewPost(PostCategory,PostTitle,PostDescription,PostTags, PostAuthorName, PostAuthorEmail);
 
                 if (postCreated)
                 {

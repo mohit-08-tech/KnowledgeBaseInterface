@@ -19,6 +19,7 @@
 </head>
 <body>
     <form runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div class="row">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0 shadow">
                 <button class="navbar-toggler" id="collapsebtn" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
@@ -70,52 +71,51 @@
         <div class="modal fade" id="UserAccountModal" tabindex="-1" aria-labelledby="UserAccountModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content bg-transparent">
-                        <div class="container py-5 h-100">
-                            <div class="row d-flex justify-content-center align-items-center h-100">
-                                <div class="col col-lg-6 mb-4 mb-lg-0">
-                                    <div class="card mb-3" style="border-radius: .5rem;">
-                                        <div class="row g-0">
-                                            <div class="col-md-4 gradient-custom text-center text-white"
-                                                style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                                                <img src="images/undraw_pic_profile_re_7g2h.svg" alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
-                                                <h5 runat="server" id="UserNameModal"></h5>
-                                                <p runat="server" id="DesignationModal"></p>
-                                                <a class="dropdown-item" href="#" title="Edit Profile" data-bs-toggle="modal" data-bs-target="#UpdateUserAccountModal" onclick="closeExistingModal()">
-                                                    <i class="far fa-edit mb-5 fs-4"></i>
-                                                 </a>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <div class="card-body p-4">
+                    <div class="container py-5 h-100">
+                        <div class="row d-flex justify-content-center align-items-center h-100">
+                            <div class="col col-lg-6 mb-4 mb-lg-0">
+                                <div class="card mb-3" style="border-radius: .5rem;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4 gradient-custom text-center text-white"
+                                            style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                                            <img src="images/undraw_pic_profile_re_7g2h.svg" alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+                                            <h5 runat="server" id="UserNameModal" class="fs-3"></h5>
+                                            <p runat="server" id="DesignationModal"></p>
+                                            <a class="dropdown-item" href="#" title="Edit Profile" data-bs-toggle="modal" data-bs-target="#UpdateUserAccountModal" onclick="closeExistingModal()">
+                                                <i class="far fa-edit mb-5 fs-4"></i>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body p-4">
+                                                <div class="row">
+                                                    <div class=" col-10">
+                                                        <h6>Your Account Info</h6>
+                                                    </div>
+                                                    <div class="col-2 justify-content-end">
+                                                        <button type="button" title="Close" class="btn-close bg-danger text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                </div>
+                                                <hr class="mt-0 mb-4">
+                                                <div class="row pt-1">
+                                                    <div class="col-6 mb-3">
+                                                        <h6>Email</h6>
+                                                        <p class="text-muted" runat="server" id="UserEmailModal"></p>
+                                                    </div>
+                                                    <div class="col-6 mb-3">
+                                                        <h6>Phone</h6>
+                                                        <p class="text-muted" runat="server" id="UserPhoneModal"></p>
+                                                    </div>
+                                                </div>
+                                                <hr class="p-1" />
+                                                <div class="row pt-1">
                                                     <div class="row">
-                                                        <div class=" col-10">
-                                                            <h6>Your Account Info</h6>
-                                                        </div>
-                                                        <div class="col-2 justify-content-end">
-                                                            <button type="button" title="Close" class="btn-close bg-danger text-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
+                                                        <h6>Admin Right?</h6>
+                                                        <p class="text-muted" runat="server" id="IsAdmin"></p>
                                                     </div>
-                                                    <hr class="mt-0 mb-4">
-                                                    <div class="row pt-1">
-                                                        <div class="col-6 mb-3">
-                                                            <h6>Email</h6>
-                                                            <p class="text-muted" runat="server" id="UserEmailModal"></p>
-                                                        </div>
-                                                        <div class="col-6 mb-3">
-                                                            <h6>Phone</h6>
-                                                            <p class="text-muted" runat="server" id="UserPhoneModal"></p>
-                                                        </div>
+                                                    <div class="row">
+                                                        <h6>Total Articles Posted</h6>
+                                                        <p class="text-muted" runat="server" id="PostCount"></p>
                                                     </div>
-                                                    <hr class="p-1" />
-                                                     <div class="row pt-1">
-                                                         <div class="row">
-                                                             <h6>Admin Right?</h6>
-                                                             <p class="text-muted" runat="server" id="IsAdmin"></p>
-                                                         </div>
-                                                         <div class="row">
-                                                             <h6>Total Articles Posted</h6>
-                                                             <p class="text-muted" runat="server" id="PostCount"></p>
-                                                         </div>
-                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -123,6 +123,7 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -140,11 +141,11 @@
                         <div class="row">
                             <div class="col-md-8 pe-0">
                                 <div class="form-left h-100 px-5">
-                                     <div class="col-12 p-2">
+                                    <div class="col-12 p-2">
                                         <label>Email<span class="text-danger">*</span></label>
                                         <div class="input-group">
                                             <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
-                                            <asp:TextBox runat="server" ID="TxtEmail" CssClass="form-control" Placeholder="Enter Email"></asp:TextBox>
+                                            <asp:TextBox runat="server" ID="TxtUpdateEmail" ReadOnly="true" CssClass="form-control disabled bg-secondary-subtle" Placeholder="Enter Email"></asp:TextBox>
                                         </div>
                                     </div>
 
@@ -152,27 +153,28 @@
                                         <label>Username<span class="text-danger">*</span></label>
                                         <div class="input-group">
                                             <div class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></div>
-                                            <asp:TextBox runat="server" ID="TxtUserName" CssClass="form-control" Placeholder="Enter Username"></asp:TextBox>
+                                            <asp:TextBox runat="server" ID="TxtUpdateUserName" CssClass="form-control" Placeholder="Enter Username"></asp:TextBox>
                                         </div>
                                     </div>
-                                   
 
                                     <div class="col-12 p-2">
-                                        <label>Password<span class="text-danger">*</span></label>
+                                        <label>Phone</label>
                                         <div class="input-group">
-                                            <div class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></div>
-                                            <asp:TextBox runat="server" ID="TxtPassword" TextMode="Password" CssClass="form-control" Placeholder="Enter Password"></asp:TextBox>
+                                            <div class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                                            <asp:TextBox runat="server" ID="TxtUpdatePhone" CssClass="form-control" Placeholder="Enter your phone number"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="col-12 p-2">
-                                        <label>Confirm Your Password<span class="text-danger">*</span></label>
+                                        <label>Designation</label>
                                         <div class="input-group">
-                                            <div class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></div>
-                                            <asp:TextBox runat="server" ID="TxtConfirmPassword" CssClass="form-control" Placeholder="Confirm Your Password"></asp:TextBox>
+                                            <div class="input-group-text"><i class="fa fa-briefcase" aria-hidden="true"></i></div>
+                                            <asp:TextBox runat="server" ID="TxtUpdateDesignation" CssClass="form-control" Placeholder="Enter your designation"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="col-md-12 mt-3">
-                                        <asp:Button runat="server" ID="BtnUpdateProfile" Text="Update Profile" CssClass="btn btn-primary" />
+                                        <asp:Button runat="server" ID="BtnUpdateProfile" Text="Update Profile"
+                                            CssClass="btn btn-primary" OnClientClick="return ValidateUpdateProfile();" OnClick="BtnUpdateProfile_Click" />
+                                        <p runat="server" id="customMsg"></p>
                                     </div>
                                 </div>
                             </div>
@@ -186,6 +188,7 @@
                 </div>
             </div>
         </div>
+
 
         <div class="container-fluid">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
@@ -202,10 +205,28 @@
             </footer>
         </div>
     </form>
-   
+
     <script>
         function closeExistingModal() {
             $('#UserAccountModal').modal('hide');
+        }
+
+
+        function ValidateUpdateProfile() {
+            var email = $('#<%= TxtUpdateEmail.ClientID %>').val().trim();
+            var username = $('#<%= TxtUpdateUserName.ClientID %>').val().trim();
+
+            if (email === "") {
+                alert("Email can't be empty!");
+                return false;
+            }
+
+            if (username === "") {
+                alert("Username can't be empty!");
+                return false;
+            }
+
+            return true;
         }
     </script>
 </body>

@@ -54,6 +54,13 @@ namespace KnowledgeBaseInterface
                 UserPhoneModal.InnerText = userinfo.UserPhone;
                 IsAdmin.InnerText = userinfo.IsAdmin == "Y" ? "Yes" : "No";
                 PostCount.InnerText = userinfo.PostCount.ToString();
+
+
+                TxtUpdateEmail.Text = userinfo.UserEmail;
+                TxtUpdateUserName.Text = userinfo.UserName;
+                TxtUpdatePhone.Text = userinfo.UserPhone;
+                TxtUpdateDesignation.Text = userinfo.UserDesignation;
+
             }
             catch (Exception ex )
             {
@@ -78,6 +85,31 @@ namespace KnowledgeBaseInterface
             {
                 Session["ErrorMessage"] = ex.Message;
                 Response.Redirect("~/ErrorPage.aspx");
+            }
+        }
+
+        protected void BtnUpdateProfile_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string email = TxtUpdateEmail.Text;
+                string username = TxtUpdateUserName.Text;
+                string phone = TxtUpdatePhone.Text;
+                string designation = TxtUpdateDesignation.Text;
+
+                UserAccountBAL updateAccountObj = new UserAccountBAL();
+
+                bool isUpdated = updateAccountObj.UpdateUserAccount(username,email,phone,designation);
+                if (isUpdated)
+                    customMsg.InnerText = "Account updated. Re-login to apply the effect";
+                else
+                    customMsg.InnerText = "Could not updated account at the moment please try again later."; ;
+
+                Response.Redirect(HttpContext.Current.Request.Url.ToString(), true);
+            }
+            catch (Exception ex)
+            {
+                LogHelper.ErrorFormat("Error in updating user profile. Error = {0}", ex.Message);
             }
         }
     }

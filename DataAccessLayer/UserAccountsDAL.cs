@@ -162,5 +162,43 @@ namespace DataAccessLayer
                 return null;
             }
         }
+
+        public bool UpdateUserAccount(string username, string email, string phone, string designation)
+        {
+            try
+            {
+                LogHelper.InfoFormat("Updating User: {0}", email);
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand command = new SqlCommand("UpdateUserProfile", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@Email", email);
+                        command.Parameters.AddWithValue("@UserId", username);
+
+                        if (String.IsNullOrEmpty(phone))
+                            command.Parameters.AddWithValue("@Phone", (DBNull.Value));
+                        else
+                            command.Parameters.AddWithValue("@Phone", (phone));
+
+                        if (String.IsNullOrEmpty(designation))
+                            command.Parameters.AddWithValue("@Desgination", (DBNull.Value));
+                        else
+                            command.Parameters.AddWithValue("@Desgination", (designation));
+
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                        connection.Close();
+                    }
+                }
+                LogHelper.InfoFormat("User: {0} updated successfully", email);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                LogHelper.ErrorFormat("Error in updating user: {0}. Error = {1}", email, ex.Message);
+                return false;
+            }
+        }
     }
 }

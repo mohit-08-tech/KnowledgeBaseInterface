@@ -49,14 +49,14 @@
                                         <asp:TextBox runat="server" ID="TxtConfirmPassword" CssClass="form-control" Placeholder="Confirm Your Password"></asp:TextBox>
                                     </div>
                                 </div>
-                                 <div class="col-12 p-2">
+                                <div class="col-12 p-2">
                                     <label>Phone</label>
                                     <div class="input-group">
                                         <div class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i></div>
                                         <asp:TextBox runat="server" ID="TxtPhone" CssClass="form-control" Placeholder="Enter your phone number"></asp:TextBox>
                                     </div>
                                 </div>
-                                   <div class="col-12 p-2">
+                                <div class="col-12 p-2">
                                     <label>Designation</label>
                                     <div class="input-group">
                                         <div class="input-group-text"><i class="fa fa-briefcase" aria-hidden="true"></i></div>
@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <span runat="server" id="SignUpMessage" class="text-info"></span>
-                                    <a href="Login.aspx" runat="server" id="AfterSignUpLogin" style="text-decoration:underline" visible="false">Login Now</a>
+                                    <a href="Login.aspx" runat="server" id="AfterSignUpLogin" style="text-decoration: underline" visible="false">Login Now</a>
                                 </div>
                             </div>
                         </div>
@@ -119,7 +119,7 @@
         }
 
         // Regular expression for email validation
-        var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; 
+        var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if (emailRegex.test(email) === false) {
             // Email is invalid
             alert('Invalid email address. Please enter a valid email.');

@@ -11,12 +11,12 @@ namespace BusinessAccessLayer
 {
     public class UserPostsBAL
     {
-        public bool CreateNewPost(int PostCategory, string PostTitle, string PostDescription, string PostTags, string PostAuthor)
+        public bool CreateNewPost(int PostCategory, string PostTitle, string PostDescription, string PostTags, string PostAuthorName,string PostAuthorEmail)
         {
             try
             {
                 UserPostsDAL UserPostsObj = new UserPostsDAL();
-                return UserPostsObj.CreateNewPost(PostCategory,PostTitle,PostDescription,PostTags,PostAuthor);
+                return UserPostsObj.CreateNewPost(PostCategory,PostTitle,PostDescription,PostTags, PostAuthorName, PostAuthorEmail);
             }
             catch(Exception ex)
             {

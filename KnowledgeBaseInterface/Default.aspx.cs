@@ -19,6 +19,7 @@ namespace KnowledgeBaseInterface
             {
                 if (!IsPostBack)
                 {
+
                     List<TopTags> TopTags = GetTopTags();
                     CreateTopTagsCard(TopTags);
 

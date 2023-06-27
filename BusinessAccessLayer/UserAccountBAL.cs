@@ -39,5 +39,11 @@ namespace BusinessAccessLayer
             UserAccountsDAL GetUserInfoObj = new UserAccountsDAL();
             return GetUserInfoObj.GetUserInfo(email);
         }
+
+        public bool UpdateUserAccount(string username, string email, string phone, string designation)
+        {
+            UserAccountsDAL UpdateAccountObj = new UserAccountsDAL();
+            return UpdateAccountObj.UpdateUserAccount(username, email, phone, designation);
+        }
     }
 }

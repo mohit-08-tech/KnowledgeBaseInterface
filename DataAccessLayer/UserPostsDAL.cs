@@ -23,12 +23,12 @@ namespace DataAccessLayer
             connectionString = "Data Source=" + DataSource + ";Initial Catalog=" + IntitialCatalog + ";Integrated Security=SSPI;Persist Security Info=False;";
         }
 
-        public bool CreateNewPost(int PostCategory,string PostTitle,string PostDescription,string PostTags,string PostAuthor)
+        public bool CreateNewPost(int PostCategory,string PostTitle,string PostDescription,string PostTags,string PostAuthorName, string PostAuthorEmail)
         {
             try
             {
                 LogHelper.InfoFormat("Creating New Post");
-                LogHelper.InfoFormat("DEBUG: PostCategory:{0},PostTitle:{1},PostDescription:{2},PostTags:{3},PostAuthor:{4}",PostCategory,PostTitle, PostTags,PostDescription,PostAuthor);
+                LogHelper.InfoFormat("DEBUG: PostCategory:{0},PostTitle:{1},PostDescription:{2},PostTags:{3},PostAuthorName:{4}, PostAuthorEmail: {5}",PostCategory,PostTitle, PostTags,PostDescription, PostAuthorName,PostAuthorEmail);
                
                 if(PostCategory < 0)
                 {
@@ -50,10 +50,15 @@ namespace DataAccessLayer
                         else
                             command.Parameters.AddWithValue("@PostTags",(PostTags));
 
-                        if (String.IsNullOrEmpty(PostAuthor))
-                            command.Parameters.AddWithValue("@PostAuthor", (DBNull.Value));
+                        if (String.IsNullOrEmpty(PostAuthorName))
+                            command.Parameters.AddWithValue("@PostAuthorName", (DBNull.Value));
                         else
-                            command.Parameters.AddWithValue("@PostAuthor", (PostAuthor));
+                            command.Parameters.AddWithValue("@PostAuthorName", (PostAuthorName));
+
+                        if (String.IsNullOrEmpty(PostAuthorEmail))
+                            command.Parameters.AddWithValue("@PostAuthorEmail", (DBNull.Value));
+                        else
+                            command.Parameters.AddWithValue("@PostAuthorEmail", (PostAuthorEmail));
 
                         connection.Open();
                         command.ExecuteNonQuery();
