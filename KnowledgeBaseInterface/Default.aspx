@@ -4,12 +4,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="Content/Site.css" rel="stylesheet" />
     <asp:ScriptManagerProxy ID="ScriptManagerProxy1" runat="server"></asp:ScriptManagerProxy>
-
     <div class="row bg-primary">
         <div class="container-fluid">
             <div class="row g-5">
                 <div class="col-lg-4 text-center text-lg-start">
-                    <img src="images/undraw_picture_re_ne03.svg" width="400" height="auto">
+                    <img src="images/undraw_picture_re_ne03.svg" width="400">
                 </div>
                 <div class="col-lg-8">
                     <div class="row">
@@ -18,7 +17,7 @@
                     <div class="row">
                         <div class="input-group">
                             <asp:TextBox runat="server" ID="TxtSearchBox" TextMode="Search" class="form-control" Placeholder="Search" onkeydown="handleKeyPress(event)"/>
-                            <asp:Button runat="server" ID="BtnSearchPosts" CssClass="search-button" OnClientClick="return ValidateSearch(event);" OnClick="BtnSearchPosts_Click" />
+                            <asp:Button runat="server" ID="BtnSearchPosts" CssClass="search-button" OnClientClick="return ValidateSearch(event);" OnClick="BtnSearchPosts_Click" ToolTip="Search" />
                         </div>
                         <div class="row mt-4">
                             <p class="text-white">Popular keywords</p>
@@ -41,7 +40,7 @@
             </div>
         </div>
     </div>
-
+   
     <div class="row bg-white">
         <div class="container-fluid p-3">
             <div class="row justify-content-center">

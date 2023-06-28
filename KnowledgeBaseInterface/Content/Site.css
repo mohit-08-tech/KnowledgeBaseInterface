@@ -1,8 +1,8 @@
-﻿*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 .transparent-button {
@@ -12,12 +12,18 @@
     color: white;
     text-align: center;
     margin: 5px;
+    transition:all 0.4s ease-out;
 }
 
-.card-dimensions{
-    width:250px;
-    height:350px;
-    margin:10px;
+    .transparent-button:hover {
+        background-color: #FFF8DC;
+        color: #1A1A1A;
+    } 
+
+.card-dimensions {
+    width: 250px;
+    height: 350px;
+    margin: 10px;
 }
 
 a {
@@ -31,7 +37,6 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 
 .form-right i {
@@ -77,11 +82,13 @@ a {
     background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
 .rasp {
     background: #06beb6; /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #48b1bf, #06beb6); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #48b1bf, #06beb6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
 .gradient-custom {
     background: #f6d365;
     background: -webkit-linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
@@ -114,7 +121,7 @@ a {
     cursor: pointer;
     margin: 20px 0;
     padding: 10px 0px;
-    text-align:center;
+    text-align: center;
     transition: all 0.6s ease-out;
 }
 
@@ -122,7 +129,7 @@ a {
         box-shadow: 0 0 6px #4183D7;
     }
 
-.nav-item a {
+.underline-animate {
     position: relative;
     display: inline-block;
     color: black;
@@ -131,7 +138,7 @@ a {
     padding-right: 20px !important;
 }
 
-    .nav-item a::after {
+   .underline-animate::after {
         content: '';
         position: absolute;
         left: 0;
@@ -142,7 +149,18 @@ a {
         transition: width 0.3s ease-in-out;
     }
 
-    .nav-item a:hover::after {
+ .underline-animate:hover::after {
         width: 100%;
     }
+
+.spin{
+    -webkit-transition: -webkit-transform 0.8s ease-in-out;
+    transition: transform 0.8s ease-in-out;
+}
+
+    .spin:hover {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+
 
