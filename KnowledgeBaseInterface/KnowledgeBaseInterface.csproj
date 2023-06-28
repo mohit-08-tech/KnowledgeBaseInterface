@@ -115,6 +115,7 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="DatabaseScript\kbi.sql" />
     <Content Include="Default.aspx" />
     <Content Include="ErrorPage.aspx" />
     <Content Include="favicon.ico" />
