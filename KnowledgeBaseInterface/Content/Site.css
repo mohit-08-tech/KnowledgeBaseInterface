@@ -12,13 +12,13 @@
     color: white;
     text-align: center;
     margin: 5px;
-    transition:all 0.4s ease-out;
+    transition: all 0.4s ease-out;
 }
 
     .transparent-button:hover {
         background-color: #FFF8DC;
         color: #1A1A1A;
-    } 
+    }
 
 .card-dimensions {
     width: 250px;
@@ -138,7 +138,7 @@ a {
     padding-right: 20px !important;
 }
 
-   .underline-animate::after {
+    .underline-animate::after {
         content: '';
         position: absolute;
         left: 0;
@@ -149,11 +149,11 @@ a {
         transition: width 0.3s ease-in-out;
     }
 
- .underline-animate:hover::after {
+    .underline-animate:hover::after {
         width: 100%;
     }
 
-.spin{
+.spin {
     -webkit-transition: -webkit-transform 0.8s ease-in-out;
     transition: transform 0.8s ease-in-out;
 }
@@ -162,5 +162,3 @@ a {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
     }
-
-

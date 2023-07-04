@@ -45,7 +45,7 @@
         <div class="container-fluid p-3">
             <div class="row justify-content-center">
                 <div class="row text-center m-3">
-                    <h2>Popular Articles</h2>
+                    <h2>Recent Articles</h2>
                 </div>
                 <div id="PopluarArticlesContainer" class="d-flex justify-content-center flex-wrap" runat="server"></div>
             </div>
