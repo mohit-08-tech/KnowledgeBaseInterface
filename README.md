@@ -7,3 +7,5 @@ Tools Used -
 1. Visual Studio 2022 (.NET Framework 4.8)
 2. Bootstrap 5.2
 3. SQL Server 2019
+
+To Setup in your local find the database script in **KnowledgeBaseInterface/DatabaseScript** folder and update connection string accordingly in web config.
