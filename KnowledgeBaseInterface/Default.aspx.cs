@@ -73,12 +73,15 @@ namespace KnowledgeBaseInterface
             {
                 foreach (var Tag in TopTags)
                 {
-                    HtmlButton button = new HtmlButton();
-                    button.Attributes["class"] = "transparent-button rounded p-1";
-                    button.Attributes["value"] = Tag.TagName;
-                    button.InnerText = Tag.TagName;
-                    button.Attributes["onclick"] = "SearchFromTags(this); return false;";
-                    toptagscontainer.Controls.Add(button);
+                    if (!String.IsNullOrEmpty(Tag.TagName))
+                    {
+                        HtmlButton button = new HtmlButton();
+                        button.Attributes["class"] = "transparent-button rounded p-1";
+                        button.Attributes["value"] = Tag.TagName;
+                        button.InnerText = Tag.TagName;
+                        button.Attributes["onclick"] = "SearchFromTags(this); return false;";
+                        toptagscontainer.Controls.Add(button);
+                    }
                 }
             }
             catch (Exception ex)
@@ -206,7 +209,10 @@ namespace KnowledgeBaseInterface
                 }
 
                 // Retrieve the post based on the selected post ID from the List<Post>
-                Post selectedPost = TopArticles.FirstOrDefault(p => p.PostId.ToString() == postId);
+                Post selectedPost = TopArticles.
+                                    FirstOrDefault(
+                                        p => p.PostId.ToString() == postId
+                                    );
 
                 if (selectedPost != null)
                 {

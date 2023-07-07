@@ -39,10 +39,11 @@ namespace DataAccessLayer
 
                         while (reader.Read())
                         {
-                            TopTags.Add(new TopTags()
-                            {
-                                TagName = (string)reader["PostTags"]
-                            });
+                                TopTags.Add(new TopTags()
+                                {
+                                    TagName = reader["PostTags"] != 
+                                              DBNull.Value ? (string)reader["PostTags"] : string.Empty
+                                });
                         }
                     }
                 }
@@ -72,6 +73,7 @@ namespace DataAccessLayer
 
                         while (reader.Read())
                         {
+
                             Post post = new Post
                             {
                                 PostId = (Guid)reader["PostId"],
@@ -79,13 +81,14 @@ namespace DataAccessLayer
                                 PostDescription = (string)reader["PostDescription"],
                                 PostCategory = Convert.ToInt64(reader["PostCategoryId"]),
                                 PostCategoryName = (string)reader["PostCategoryName"],
-                                PostTags = (string)reader["PostTags"],
+                                PostTags = reader["PostTags"] !=
+                                              DBNull.Value ? (string)reader["PostTags"] : string.Empty,
                                 PostAuthorName = (string)reader["PostAuthorName"],
                                 PostAuthorEmail = (string)reader["PostAuthorEmail"],
                                 PostDate = (DateTime)reader["PostDate"]
                             };
-
                             ResultPosts.Add(post);
+
                         }
                     }
                 }
